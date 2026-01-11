@@ -12,7 +12,7 @@ function App() {
       <MainContent />
       <Footer /> */}
 
-      <UserProfile name="Zozo" age="25" bio="Love color and nature" />
+      <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
     </>
   );
 }
