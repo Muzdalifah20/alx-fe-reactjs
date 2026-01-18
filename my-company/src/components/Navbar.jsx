@@ -9,6 +9,8 @@ function Navbar() {
         backgroundColor: "#333",
         padding: "1rem",
         marginBottom: "2rem",
+        display: "flex",
+        justifyContent: "center",
       }}
     >
       <ul
