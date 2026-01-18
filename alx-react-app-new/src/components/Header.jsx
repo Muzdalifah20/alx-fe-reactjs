@@ -1,7 +1,11 @@
 export default function Header() {
   return (
     <>
-      <header>My Favorite Cities</header>
+      <header
+        style={{ backgroundColor: "navy", color: "white", textAlign: "center" }}
+      >
+        My Favorite Cities
+      </header>
     </>
   );
 }
