@@ -7,8 +7,8 @@ export default function EditRecipeForm({ recipe }) {
   const [description, setDescription] = useState(recipe.description);
   const updatedRecipe = useRecipeStore((state) => state.updatedRecipe);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     updatedRecipe(recipe.id, { title, description });
     setIsEditing(false);
   };
