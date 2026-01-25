@@ -3,19 +3,22 @@ import useRecipeStore from "./recipeStore";
 import SearchBar from "./SearchBar";
 
 const RecipeList = () => {
+  // ✅ Split into SIMPLE selectors (stable references)
   const filteredRecipes = useRecipeStore((state) => state.filteredRecipes);
-  const searchTerm = useRecipeStore((state) => state.s);
+  const searchTerm = useRecipeStore((state) => state.searchTerm); // ✅ Fixed typo
+  const toggleFavorite = useRecipeStore((state) => state.toggleFavorite);
+  const isFavorite = useRecipeStore((state) => state.isFavorite);
 
   return (
     <div>
       <SearchBar />
       {searchTerm && (
         <p>
-          Showing results for "{searchTerm}"({filteredRecipes.lenght})
-        </p>
+          Showing results for "{searchTerm}" ({filteredRecipes.length})
+        </p> // ✅ Fixed length
       )}
       <h2>Recipes</h2>
-      {filteredRecipes.lenght === 0 ? (
+      {filteredRecipes.length === 0 ? ( // ✅ Fixed length
         <p>
           {searchTerm
             ? "No matching recipes found."
@@ -29,6 +32,9 @@ const RecipeList = () => {
                 <h3>{recipe.title}</h3>
                 <p>{recipe.description}</p>
               </Link>
+              <button onClick={() => toggleFavorite(recipe.id)}>
+                {isFavorite(recipe.id) ? "❤️" : "♡"} Favorite
+              </button>
             </li>
           ))}
         </ul>

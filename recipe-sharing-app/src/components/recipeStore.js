@@ -14,6 +14,46 @@ const useRecipeStore = create((set, get) => ({
         recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase()),
       ),
     })),
+  favorites: [],
+  addFavorite: (recipeId) =>
+    set((state) => ({
+      favorites: state.favorites.includes(recipeId)
+        ? state.favorites
+        : [...state.favorites, recipeId],
+    })),
+  getFavoriteRecipes: () => {
+    const { recipes, favorites } = get();
+    return favorites
+      .map((id) => recipes.find((recipe) => recipe.id === id))
+      .filter(Boolean);
+  },
+
+  recommendations: [],
+  generateRecommendations: () =>
+    set((state) => {
+      const recommended = state.recipes.filter(
+        (recipe) => state.favorites.includes(recipe.id) && Math.random() > 0.5,
+      );
+      return {
+        recommendations: recommended,
+      };
+    }),
+  removeFavorite: (recipeId) => {
+    set((state) => ({
+      favorites: state.favorites.filter((id) => id !== recipeId),
+    }));
+    get().generateRecommendations();
+  },
+  toggleFavorite: (recipeId) => {
+    const { favorites, addFavorite, removeFavorite } = get();
+
+    if (favorites.includes(recipeId)) {
+      removeFavorite(recipeId);
+    } else {
+      addFavorite(recipeId);
+    }
+  },
+  isFavorite: (recipeId) => get().favorites.includes(recipeId),
   addRecipe: (newRecipe) =>
     set((state) => ({
       recipes: [...state.recipes, { id: Date.now(), ...newRecipe }],
