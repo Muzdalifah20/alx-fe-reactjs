@@ -7,18 +7,23 @@ import RecipeDetails from "./components/RecipeDetails";
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <RecipeList />
-              <AddRecipeForm />
-            </>
-          }
-        />
-        <Route path="/recipe/:recipeId" element={<RecipeDetails />} />
-      </Routes>
+      <div className="app">
+        {" "}
+        {/* Add this */}
+        <h1>Recipe Sharing App</h1>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <RecipeList />
+                <AddRecipeForm />
+              </>
+            }
+          />
+          <Route path="/recipe/:recipeId" element={<RecipeDetails />} />
+        </Routes>
+      </div>
     </Router>
   );
 }

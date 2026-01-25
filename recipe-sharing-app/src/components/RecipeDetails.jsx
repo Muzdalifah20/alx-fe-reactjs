@@ -14,7 +14,7 @@ const RecipeDetails = () => {
   if (!recipe) return <div>Recipe not found</div>;
 
   return (
-    <div>
+    <div className="recipe-details">
       <Link to="/">← Back to Recipes</Link>
       <h1>{recipe.title}</h1>
       <p>{recipe.description}</p>

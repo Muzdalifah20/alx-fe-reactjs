@@ -24,7 +24,7 @@ const RecipeList = () => {
       ) : (
         <ul>
           {filteredRecipes.map((recipe) => (
-            <li key={recipe.id}>
+            <li key={recipe.id} className="recipe-item">
               <Link to={`/recipe/${recipe.id}`}>
                 <h3>{recipe.title}</h3>
                 <p>{recipe.description}</p>

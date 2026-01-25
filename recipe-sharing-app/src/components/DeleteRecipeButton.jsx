@@ -12,5 +12,9 @@ export default function DeleteRecipeButton({ recipeId }) {
     }
   };
 
-  return <button onClick={handleDelete}>Delete Recipe</button>;
+  return (
+    <button onClick={handleDelete} className="delete-button">
+      Delete Recipe
+    </button>
+  );
 }
