@@ -5,9 +5,9 @@ import Search from "./components/Search";
 function App() {
   return (
     <Router>
-      <div className="app">
+      <div>
         <Routes>
-          <Route path="/" element={<Search />} />
+          <Route path="search" element={<Search />} />
         </Routes>
       </div>
     </Router>
