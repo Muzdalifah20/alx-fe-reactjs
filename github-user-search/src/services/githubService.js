@@ -13,7 +13,7 @@ const api = axios.create({
 //     throw new Error("User not found");
 //   }
 // };
-
+const SEARCH_ENDPOINT = "https://api.github.com/search/users?q";
 export const searchUsers = async ({
   query = "",
   location = "",
