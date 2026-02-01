@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { searchUsers } from "../services/githubService";
+import { fetchUserData } from "../services/githubService";
 
 const Search = () => {
   const [formData, setFormData] = useState({
@@ -17,7 +17,7 @@ const Search = () => {
     setError("");
 
     try {
-      const results = await searchUsers(formData);
+      const results = await fetchUserData(formData);
       setUsers(results);
     } catch {
       setError("No users found matching your criteria");

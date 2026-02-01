@@ -14,7 +14,7 @@ const api = axios.create({
 //   }
 // };
 const SEARCH_ENDPOINT = "https://api.github.com/search/users?q";
-export const searchUsers = async ({
+export const fetchUserData = async ({
   query = "",
   location = "",
   minRepos = "",
