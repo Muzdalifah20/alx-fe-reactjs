@@ -1,5 +1,6 @@
 import recipesData from "../data.json";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
   const [recipes, setRecipes] = useState([]);
@@ -44,9 +45,12 @@ export default function HomePage() {
                 <span className="text-sm text-orange-600 font-semibold bg-orange-100 px-3 py-1 rounded-full">
                   Recipe #{recipe.id}
                 </span>
-                <button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <Link
+                  to={`/recipe/${recipe.id}`}
+                  className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                >
                   View Recipe
-                </button>
+                </Link>
               </div>
             </div>
           ))}
