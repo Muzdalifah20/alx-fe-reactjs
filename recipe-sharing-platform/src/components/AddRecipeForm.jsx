@@ -4,14 +4,14 @@ import recipesData from "../data.json";
 export default function AddRecipeForm() {
   const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState("");
-  const [instructions, setInstructions] = useState("");
+  const [steps, setSteps] = useState(""); // ✅ CHANGED: "steps" instead of "instructions"
   const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!title || ingredients || !instructions) {
-      setError("All fields are required!");
+    if (!title || !ingredients || !steps) {
+      setError("All fields required!");
       return;
     }
 
@@ -29,14 +29,19 @@ export default function AddRecipeForm() {
         .split("\n")
         .map((line) => line.trim())
         .filter(Boolean),
-      instructions: instructions
+      steps: steps
         .split("\n")
         .map((line) => line.trim())
-        .filter(Boolean),
+        .filter(Boolean), // ✅ "steps"
     };
+
     console.log("New recipe:", newRecipe);
+    alert("Recipe added! (Check console)");
+
     setError("");
-    alert("Recipe added!");
+    setTitle("");
+    setIngredients("");
+    setSteps("");
   };
 
   return (
@@ -62,7 +67,7 @@ export default function AddRecipeForm() {
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500"
               placeholder="e.g. Chocolate Cake"
               required
             />
@@ -77,36 +82,34 @@ export default function AddRecipeForm() {
               value={ingredients}
               onChange={(e) => setIngredients(e.target.value)}
               rows="6"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 resize-vertical"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 resize-vertical"
               placeholder="2 cups flour
 1 cup sugar
-3 eggs
-..."
+3 eggs"
               required
             />
           </div>
 
-          {/* Instructions */}
+          {/* Steps */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Instructions (one per line)
+              Steps (one per line) // ✅ "Steps" label
             </label>
             <textarea
-              value={instructions}
-              onChange={(e) => setInstructions(e.target.value)}
+              value={steps}
+              onChange={(e) => setSteps(e.target.value)}
               rows="6"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 resize-vertical"
-              placeholder="Preheat oven to 350°F
-Mix dry ingredients
-..."
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 resize-vertical"
+              placeholder="1. Preheat oven to 350°F
+2. Mix dry ingredients
+3. Bake 30 mins"
               required
             />
           </div>
 
-          {/* Submit */}
           <button
             type="submit"
-            className="w-full bg-orange-500 text-white py-4 px-6 rounded-lg font-semibold text-lg hover:bg-orange-600 focus:ring-4 focus:ring-orange-200 transition-all duration-200 shadow-lg"
+            className="w-full bg-orange-500 text-white py-4 px-6 rounded-lg font-semibold text-lg hover:bg-orange-600 shadow-lg"
           >
             Add Recipe 🍳
           </button>
