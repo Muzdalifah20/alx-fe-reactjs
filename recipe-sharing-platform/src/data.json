@@ -3,24 +3,80 @@
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop",
+    "ingredients": [
+      "200g spaghetti",
+      "100g pancetta",
+      "2 eggs",
+      "50g pecorino",
+      "black pepper"
+    ],
+    "instructions": [
+      "Boil spaghetti 8-10 mins",
+      "Cook pancetta until crispy",
+      "Mix eggs + cheese",
+      "Combine off heat",
+      "Serve with pepper"
+    ]
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://images.unsplash.com/photo-1565299876767-cd1d5734392f?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1565299876767-cd1d5734392f?w=400&h=300&fit=crop",
+    "ingredients": [
+      "500g chicken",
+      "2 tbsp tikka masala paste",
+      "400ml coconut milk",
+      "1 onion",
+      "rice"
+    ],
+    "instructions": [
+      "Cook onion + paste",
+      "Add chicken, brown",
+      "Add coconut milk",
+      "Simmer 20 mins",
+      "Serve with rice"
+    ]
   },
   {
     "id": 3,
     "title": "Margherita Pizza",
     "summary": "Classic pizza topped with tomato sauce, mozzarella cheese, and fresh basil.",
-    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+    "ingredients": [
+      "500g chicken",
+      "2 tbsp tikka masala paste",
+      "400ml coconut milk",
+      "1 onion",
+      "rice"
+    ],
+    "instructions": [
+      "Cook onion + paste",
+      "Add chicken, brown",
+      "Add coconut milk",
+      "Simmer 20 mins",
+      "Serve with rice"
+    ]
   },
   {
     "id": 4,
     "title": "Beef Burger",
     "summary": "Juicy beef patty with fresh lettuce, tomato, cheese, and special sauce.",
-    "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop",
+    "ingredients": [
+      "200g spaghetti",
+      "100g pancetta",
+      "2 eggs",
+      "50g pecorino",
+      "black pepper"
+    ],
+    "instructions": [
+      "Boil spaghetti 8-10 mins",
+      "Cook pancetta until crispy",
+      "Mix eggs + cheese",
+      "Combine off heat",
+      "Serve with pepper"
+    ]
   }
 ]
