@@ -3,13 +3,8 @@ import Profile from "./components/Profile";
 import Login from "./components/Login";
 import Home from "./components/Home";
 import BlogPost from "./components/BlogPost";
+import ProtectedRoute from "./components/ProtectedRoute";
 import "./App.css";
-
-const isAuthenticated = () => !!localStorage.getItem("token");
-
-function ProtectedRoute({ children }) {
-  return isAuthenticated() ? children : <Navigate to="/login" />;
-}
 
 function App() {
   return (
