@@ -1,23 +1,26 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 
+function fetchPosts() {
+  return fetch("https://jsonplaceholder.typicode.com/posts?_limit=5").then(
+    (res) => res.json(),
+  );
+}
 export default function PostsComponent() {
   const QueryClient = useQueryClient();
 
   const {
     data: posts,
     isLoading,
+    isError,
     error,
     refetch,
   } = useQuery({
     queryKey: ["posts"],
-    queryFn: () =>
-      fetch("https://jsonplaceholder.typicode.com/posts?_limit=5").then((res) =>
-        res.json(),
-      ),
+    queryFn: fetchPosts,
   });
 
   if (isLoading) return <div>Loading posts...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+  if (isError) return <div>Error: {error.message}</div>;
 
   return (
     <div>
