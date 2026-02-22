@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Profile from "./components/Profile";
 import Login from "./components/Login";
 import Home from "./components/Home";
+import BlogPost from "./components/BlogPost";
 import "./App.css";
 
 const isAuthenticated = () => !!localStorage.getItem("token");
@@ -24,6 +25,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="/blog/:id" element={<BlogPost />} />
       </Routes>
     </BrowserRouter>
   );
