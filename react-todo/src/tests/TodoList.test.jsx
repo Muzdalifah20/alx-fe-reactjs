@@ -32,7 +32,6 @@ describe("TodoList", () => {
     render(<TodoList />);
     const todos = screen.getAllByRole("listitem");
     const firstDeleteButton = todos[0].querySelector("button");
-
     fireEvent.click(firstDeleteButton);
     expect(screen.queryByText("Learn React")).not.toBeInTheDocument();
   });

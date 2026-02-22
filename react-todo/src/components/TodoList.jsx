@@ -1,4 +1,5 @@
 import { useState } from "react";
+import AddTodoForm from "./AddTodoForm";
 
 const initialTodos = [
   { id: 1, text: "Learn React", completed: false },
@@ -8,7 +9,6 @@ const initialTodos = [
 
 export default function TodoList() {
   const [todos, setTodos] = useState(initialTodos);
-  const [inputValue, setInputValue] = useState("");
 
   const addTodo = (text) => {
     setTodos([...todos, { id: Date.now(), text, completed: false }]);
@@ -26,27 +26,10 @@ export default function TodoList() {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (inputValue.trim()) {
-      addTodo(inputValue.trim());
-      setInputValue("");
-    }
-  };
-
   return (
     <div>
       <h1>Todo List</h1>
-
-      <form onSubmit={handleSubmit}>
-        <input
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          placeholder="Add new todo"
-        />
-        <button type="submit">Add</button>
-      </form>
-
+      <AddTodoForm onAddTodo={addTodo} />
       <ul>
         {todos.map((todo) => (
           <li
