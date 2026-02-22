@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 
 function fetchPosts() {
   return fetch("https://jsonplaceholder.typicode.com/posts?_limit=5").then(
@@ -6,8 +6,6 @@ function fetchPosts() {
   );
 }
 export default function PostsComponent() {
-  const QueryClient = useQueryClient();
-
   const {
     data: posts,
     isLoading,
@@ -17,6 +15,10 @@ export default function PostsComponent() {
   } = useQuery({
     queryKey: ["posts"],
     queryFn: fetchPosts,
+    cacheTime: 5 * 60 * 1000,
+    staleTime: 1 * 60 * 1000,
+    refetchOnWindowFocus: false,
+    keepPreviousData: true,
   });
 
   if (isLoading) return <div>Loading posts...</div>;
